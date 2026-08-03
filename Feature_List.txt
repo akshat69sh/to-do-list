@@ -1,0 +1,8 @@
+1 - Todo Task input 
+2 - Todo description optional 
+3 - Todo Type (Study , shopping , many more)
+4 - User can create their own types 
+5 - Todo Priority (High , Medium , Low)
+6 - Filter based on Priority and Task Type 
+7 - Date when created show this on the task card 
+8 - UI of Task Card or list must be attractive 
