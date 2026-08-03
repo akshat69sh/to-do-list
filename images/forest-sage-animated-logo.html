@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forest Sage Animated Logo</title>
+  <style>
+    :root {
+      --forest: #173f35;
+      --sage: #8faf9a;
+      --ivory: #f7f5ef;
+      --charcoal: #202522;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: var(--ivory);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .forest-sage-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--charcoal);
+    }
+
+    .forest-sage-logo svg {
+      width: 104px;
+      height: 104px;
+      overflow: visible;
+    }
+
+    .calendar-outline,
+    .calendar-ring {
+      fill: none;
+      stroke: var(--forest);
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .calendar-outline {
+      stroke-dasharray: 430;
+      stroke-dashoffset: 430;
+      animation: draw-calendar 0.9s ease-out forwards;
+    }
+
+    .calendar-ring {
+      stroke-dasharray: 30;
+      stroke-dashoffset: 30;
+      animation: draw-ring 0.35s ease-out 0.65s forwards;
+    }
+
+    .leaf {
+      fill: var(--sage);
+      transform-box: fill-box;
+      transform-origin: 25% 85%;
+      transform: scale(0) rotate(-18deg);
+      opacity: 0;
+      animation: grow-leaf 0.65s cubic-bezier(.2, .9, .25, 1.25) 0.85s forwards;
+    }
+
+    .calendar-page {
+      fill: var(--ivory);
+      stroke: var(--sage);
+      stroke-width: 2;
+      transform-box: fill-box;
+      transform-origin: center top;
+      opacity: 0;
+      animation: change-page 4s ease-in-out 2.4s infinite;
+    }
+
+    .page-line {
+      fill: none;
+      stroke: var(--sage);
+      stroke-width: 3;
+      stroke-linecap: round;
+      opacity: 0;
+      animation: show-page-lines 4s ease-in-out 2.4s infinite;
+    }
+
+    .check {
+      fill: none;
+      stroke: var(--forest);
+      stroke-width: 9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 90;
+      stroke-dashoffset: 90;
+      animation: draw-check 0.55s ease-out 1.35s forwards;
+    }
+
+    .wordmark {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 650;
+      letter-spacing: -0.045em;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(-12px);
+      animation: show-name 0.55s ease-out 1.55s forwards;
+    }
+
+    .forest-sage-logo:hover .leaf {
+      animation: leaf-breathe 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes draw-calendar { to { stroke-dashoffset: 0; } }
+    @keyframes draw-ring { to { stroke-dashoffset: 0; } }
+    @keyframes draw-check { to { stroke-dashoffset: 0; } }
+
+    @keyframes grow-leaf {
+      to { opacity: 1; transform: scale(1) rotate(0); }
+    }
+
+    @keyframes show-name {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes change-page {
+      0%, 12% { opacity: 0; transform: translateY(-5px) scaleY(0.08); }
+      22%, 62% { opacity: 0.96; transform: translateY(0) scaleY(1); }
+      76%, 100% { opacity: 0; transform: translateY(7px) scaleY(0.08); }
+    }
+
+    @keyframes show-page-lines {
+      0%, 20%, 67%, 100% { opacity: 0; }
+      28%, 60% { opacity: 0.8; }
+    }
+
+    @keyframes leaf-breathe {
+      from { transform: scale(1) rotate(0); }
+      to { transform: scale(1.045) rotate(2deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .forest-sage-logo * {
+        animation: none !important;
+        opacity: 1;
+        transform: none;
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .forest-sage-logo { gap: 12px; }
+      .forest-sage-logo svg { width: 72px; height: 72px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="forest-sage-logo" role="img" aria-label="Forest Sage">
+    <svg viewBox="0 0 120 120" aria-hidden="true">
+      <path class="calendar-outline" d="M29 24H91C101 24 108 31 108 41V94C108 104 101 111 91 111H29C19 111 12 104 12 94V41C12 31 19 24 29 24Z" />
+      <path class="calendar-ring" d="M37 12V32 M83 12V32" />
+      <rect class="calendar-page" x="24" y="40" width="72" height="58" rx="5" />
+      <path class="page-line" d="M34 53H70 M34 63H62" />
+      <path class="leaf" d="M36 83C36 54 53 41 86 42C87 72 70 91 39 93C37 90 36 87 36 83Z" />
+      <path class="check" d="M39 70L53 83L82 53" />
+    </svg>
+    <span class="wordmark">Forest Sage</span>
+  </div>
+</body>
+</html>

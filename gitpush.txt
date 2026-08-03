@@ -6,3 +6,6 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin git@github.com:akshatmsh69-ui/to-do-list.git
 git push -u origin main
+
+to pull changes from origin
+git pull
