@@ -8,6 +8,10 @@
     <title>Taskify</title>
 
     <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
   </head>
 
   <body>
@@ -85,52 +89,96 @@
       </div>
     </header>
     <!-- header khatam -->
-     <!-- left panel start -->
-    <aside class="left-panel">
-      <div class="lp-first-div">
-        <button class="dashboard">Dashboard</button>
-        <button class="list">List</button>
-        <button class="calendar">Calendar</button>
-        <button class="messages">Messages</button>
-      </div>
-      <span class="mylist">My List</span>
-      <div class="lp-second-div">
-        <button class="work">Work</button>
-        <button class="study">Study</button>
-        <button class="holiday">Holiday</button>
-      </div>
-    </aside>
-    <!-- left panel finish -->
-     <!-- main section -->
-    <section class="main-section">
-      <div class="task-overveiw">
-        <img src="" alt="" />
-      </div>
-      <div class="add-task">
-        <div class="add-task-1">
-          <div class="input"></div>
-          <button class="post"></button>
+    <main class="dashboard-layout">
+      <!-- Left panel start -->
+      <aside class="left-panel">
+        <!-- First white card -->
+        <div class="lp-first-div">
+          <button class="sidebar-button active">
+            <span class="material-symbols-outlined">home</span>
+            <span>Dashboard</span>
+          </button>
+
+          <button class="sidebar-button">
+            <span class="material-symbols-outlined">check_circle</span>
+            <span>List</span>
+          </button>
+
+          <button class="sidebar-button">
+            <span class="material-symbols-outlined">calendar_month</span>
+            <span>Calendar</span>
+          </button>
+
+          <button class="sidebar-button">
+            <span class="material-symbols-outlined">mail</span>
+            <span>Messages</span>
+          </button>
         </div>
-        <div class="add-task-2">
-          <button class="list-type"></button>
-          <button class="today">Today</button>
-          <button class="tomorrow">Tomorrow</button>
-          <button class="custom">Custom</button>
+
+        <!-- My List heading -->
+        <div class="mylist">
+          <span>My List</span>
+          <button type="button" aria-label="Add new list">+</button>
         </div>
-      </div>
-      <span class="upcoming-task">Today's Task</span>
-      <div class="task-veiw">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </section>
-    <!-- main section finish -->
-     <!-- right panel -->
-    <aside class="right-panel">
-      <div class="calendar">calendarView</div>
-      <div class="timer">focusTimerView</div>
-    </aside>
-    <!-- right panel finish -->
+
+        <!-- Second white card -->
+        <div class="lp-second-div">
+          <button class="sidebar-button">
+            <span class="material-symbols-outlined">business_center</span>
+            <span>Work</span>
+            <span class="status-dot green"></span>
+          </button>
+
+          <button class="sidebar-button">
+            <span class="material-symbols-outlined">school</span>
+            <span>Study</span>
+            <span class="status-dot yellow"></span>
+          </button>
+
+          <button class="sidebar-button">
+            <span class="material-symbols-outlined">flight</span>
+            <span>Holiday</span>
+            <span class="status-dot pink"></span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Your main-section and right-panel continue here -->
+
+      <!-- main section -->
+      <section class="main-section">
+        <div class="task-overveiw">
+          <img src="" alt="" />
+        </div>
+        <div class="add-task">
+          <div class="add-task-1">
+            <input class="input"></input>
+            <button class="post"></button>
+          </div>
+          <div class="add-task-2">
+            <button class="list-type"></button>
+            <button class="today">Today</button>
+            <button class="tomorrow">Tomorrow</button>
+            <button class="custom">Custom</button>
+          </div>
+        </div>
+        <span class="upcoming-task">Today's Task</span>
+        <div class="task-veiw">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          
+        </div>
+      </section>
+      <!-- main section finish -->
+      <!-- right panel -->
+      <aside class="right-panel">
+        <div class="calendar">calendarView</div>
+        <div class="timer">focusTimerView</div>
+      </aside>
+      <!-- right panel finish -->
+    </main>
   </body>
 </html>
