@@ -1,865 +1,686 @@
-/* main */
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F5F3EE;
+}
+
 .main {
   display: flex;
-  width: 100%;
-  min-height: 100vh;
+  width: calc(100% - 200px); /* Fill remaining screen width */
+  margin-left: 200px; /* Offsets main content so it doesn't hide under sidepanel */
+  padding: 2rem;
+  flex-direction: column;
+  gap: 80px;
 }
-/* side panel */
-.sidePanel {
+
+
+
+.sidepanel {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 70px;
+  width: 200px; /* Fixed width works better for fixed sidebars */
+  height: 100vh; /* Full viewport height */
+  position: fixed; /* Keeps panel locked while page scrolls */
+  top: 0;
+  left: 0;
+  background-color: #EAE7DF;
+  padding-bottom: 2rem; /* Keeps bottom elements from touching browser edge */
+  z-index: 100;
+}
+.webName {
+  display: flex;
+  align-items: center;
+  font-size: 2.5rem;
+  width: auto;
+}
+
+.webName img {
+  width: 80px;
+  height: 80px;
+}
+
+.navBar1 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.span1 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navBar2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+
+
+
+
+
+
+.mainsection{
+  display: flex;
+  width: 90%;
+  padding: 2rem 2rem 2rem 2rem;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.div1{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+
+}
+
+.calendarHead{
+  display: flex;
+  align-items: center;
+  
+}
+.monthYear {
+  display: flex;
+  gap: 5px;
+}
+
+.slash {
+  margin: 0 8px;
+}
+
+.week {
+  margin-right: 15px;
+}
+
+.changeBtn{
+  display: flex;
+ 
+}
+.button {
+  display: flex;
+  flex-direction: row;
+}
+.div2{
+  display: flex;
+  width: 100%;
+  height: 100vh ;
+  justify-content: flex-start;
+}
+.timeStamp{
+  display: flex;
+  flex-direction: column;
   width: 10%;
-  height:100vh;
-  box-sizing: border-box;
-  margin-top: 50px;
+  height: 100%;
+  justify-content: space-between;
+  padding-top: 8rem;
 }
-.divOne {
+.timeStamp span{
+  display: flex;
+  justify-content: space-evenly;
+
+}
+/* .taskVeiw{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-evenly;
+}
+.dateStamp{
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 1.5rem; /* Reduced padding to fit components cleanly */
-  background-color: #ffffff; /* Clean white card like reference */
-  border-radius: 1.5rem; /* Rounded corners */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle card shadow */
-  box-sizing: border-box;
-}
-.divTwo {
- display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 1.5rem; /* Reduced padding to fit components cleanly */
-  background-color: #ffffff; /* Clean white card like reference */
-  border-radius: 1.5rem; /* Rounded corners */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle card shadow */
-  box-sizing: border-box;
-}
-
-.buttons {
+  justify-content: space-evenly;
+  
+} */
+.taskVeiw {
   display: flex;
-  flex-direction: column; /* Stacks items vertically line-by-line */
-  width: 100%;
-  gap: 0.75rem; /* Even vertical spacing between buttons */
-}
-.panelHeading {
-  font-size: 1.25rem;
-  font-family: sans-serif;
-  font-weight: 700;
-  color: #1a202c;
-  margin-bottom: 1rem;
-  padding: 0;
+  width: 90%;
+  align-items: flex-start;
+  
 }
 
-/* side bar buttons */
-.btn-23,
-.btn-23 *,
-.btn-23 :after,
-.btn-23 :before,
-.btn-23:after,
-.btn-23:before {
+.dateStamp {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% / 7);
+  align-items: center;
+}
+.taskStamp{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.dates{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 3rem;
+}
+.tasks {
+  width: 90%;
+  margin-top: 40px;
+  border: #222222 ;
+  border-radius: 10px;
+  background-color: #D8D4CC;
+}
+
+/* buttons */
+/* From Uiverse.io by OnCloud125252 */ 
+/* Note that you only needs to edit the config to customize the button! */
+
+.plusButton {
+  /* Config start */
+  --plus_sideLength: 2.5rem;
+  --plus_topRightTriangleSideLength: 0.9rem;
+  /* Config end */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  width: var(--plus_sideLength);
+  height: var(--plus_sideLength);
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.plusButton::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-width: 0 var(--plus_topRightTriangleSideLength) var(--plus_topRightTriangleSideLength) 0;
+  border-style: solid;
+  border-color: transparent white transparent transparent;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+.plusButton:hover {
+  cursor: pointer;
+}
+
+.plusButton:hover::before {
+  --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
+}
+
+.plusButton:focus-visible::before {
+  --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
+}
+
+.plusButton>.plusIcon {
+  fill: white;
+  width: calc(var(--plus_sideLength) * 0.7);
+  height: calc(var(--plus_sideLength) * 0.7);
+  z-index: 1;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+.plusButton:hover>.plusIcon {
+  fill: black;
+  transform: rotate(180deg);
+}
+
+.plusButton:focus-visible>.plusIcon {
+  fill: black;
+  transform: rotate(180deg);
+}
+/* From Uiverse.io by gagan-gv */ 
+.btn {
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.5s ease-in-out;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  display: none;
+  align-items: center;
+  background: #040f16;
+  color: #f5f5f5;
+  z-index: 1001;
+}
+
+.btn:hover {
+  box-shadow: 0 0 20px 0px #2e2e2e3a;
+}
+
+.btn .icon {
+  position: absolute;
+  height: 40px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
+
+.btn .text {
+  transform: translateX(55px);
+}
+
+.btn:hover .icon {
+  width: 175px;
+}
+
+.btn:hover .text {
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active .icon {
+  transform: scale(0.85);
+}
+/* From Uiverse.io by Mike11jr */ 
+.scene {
+  display: flex;
+ width: 100%;
+ justify-content: center;
+ align-items: center;
+}
+
+.cube {
+ color: #ccc;
+ cursor: pointer;
+ font-family: 'Roboto', sans-serif;
+ transition: all 0.85s cubic-bezier(.17,.67,.14,.93);
+ transform-style: preserve-3d;
+ transform-origin: 100% 50%;
+ width: 10em;
+ height: 4em;
+}
+
+.cube:hover {
+ transform: rotateX(-90deg);
+}
+
+.side {
+ box-sizing: border-box;
+ position: absolute;
+ display: inline-block;
+ height: 4em;
+ width: 10em;
+ text-align: center;
+ text-transform: uppercase;
+ padding-top: 1.5em;
+ font-weight: bold;
+}
+
+.top {
+ background: wheat;
+ color: #222229;
+ transform: rotateX(90deg) translate3d(0, 0, 2em);
+ box-shadow: inset 0 0 0 5px #fff;
+}
+
+.front {
+ background: #222229;
+ color: #fff;
+ box-shadow: inset 0 0 0 5px #fff;
+ transform: translate3d(0, 0, 2em);
+}
+.btn-31,
+.btn-31 *,
+.btn-31 :after,
+.btn-31 :before,
+.btn-31:after,
+.btn-31:before {
   border: 0 solid;
   box-sizing: border-box;
 }
 
-.btn-23 {
+.btn-31 {
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: button;
   background-color: #000;
   background-image: none;
   color: #fff;
   cursor: pointer;
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    Segoe UI,
-    Roboto,
-    Helvetica Neue,
-    Arial,
-    Noto Sans,
-    sans-serif,
-    Apple Color Emoji,
-    Segoe UI Emoji,
-    Segoe UI Symbol,
-    Noto Color Emoji;
-  font-size: 10px;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 100%;
   font-weight: 900;
-  line-height: 10px;
+  line-height: 1.5;
   margin: 0;
   -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
   padding: 0;
-  text-transform: uppercase;
 }
 
-.btn-23:disabled {
+.btn-31:disabled {
   cursor: default;
 }
 
-.btn-23:-moz-focusring {
+.btn-31:-moz-focusring {
   outline: auto;
 }
 
-.btn-23 svg {
+.btn-31 svg {
   display: block;
   vertical-align: middle;
 }
 
-.btn-23 [hidden] {
+.btn-31 [hidden] {
   display: none;
 }
 
-.btn-23 {
-  border-radius: 99rem;
-  border-width: 2px;
-  overflow: hidden;
-  padding: 0.8rem 3rem;
+.btn-31 {
+  border-width: 1px;
+  padding: .5rem 3rem;
   position: relative;
-}
-
-.btn-23 span {
-  display: grid;
-  inset: 0;
-  place-items: center;
-  position: absolute;
-  transition: opacity 0.2s ease;
-}
-
-.btn-23 .marquee {
-  --spacing: 5em;
-  --start: 0em;
-  --end: 5em;
-  -webkit-animation: marquee 1s linear infinite;
-  animation: marquee 1s linear infinite;
-  -webkit-animation-play-state: paused;
-  animation-play-state: paused;
-  opacity: 0;
-  position: relative;
-  text-shadow:
-    #fff var(--spacing) 0,
-    #fff calc(var(--spacing) * -1) 0,
-    #fff calc(var(--spacing) * -2) 0;
-}
-
-.btn-23:hover .marquee {
-  -webkit-animation-play-state: running;
-  animation-play-state: running;
-  opacity: 1;
-}
-
-.btn-23:hover .text {
-  opacity: 0;
-}
-
-@-webkit-keyframes marquee {
-  0% {
-    transform: translateX(var(--start));
-  }
-
-  to {
-    transform: translateX(var(--end));
-  }
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(var(--start));
-  }
-
-  to {
-    transform: translateX(var(--end));
-  }
-}
-/* From Uiverse.io by H_K_MENON */
-.animated-button {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 10px 30px;
-  border: 4px solid;
-  border-color: transparent;
-  font-size: 10px;
-  font-width: 100%;
-  background-color: inherit;
-  border-radius: 100px;
-  font-weight: 600;
-  color: rgb(47, 248, 255);
-  box-shadow: 0 0 0 2px rgb(47, 255, 238);
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  width: 100%;
-}
-
-.animated-button svg {
-  position: absolute;
-  width: 24px;
-  fill: rgb(47, 255, 255);
-  z-index: 9;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button .arr-1 {
-  right: 16px;
-}
-
-.animated-button .arr-2 {
-  left: -25%;
-}
-
-.animated-button .circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  background-color: rgb(47, 224, 255);
-  border-radius: 50%;
-  opacity: 0;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button .text {
-  position: relative;
-  z-index: 1;
-  transform: translateX(-12px);
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button:hover {
-  box-shadow: 0 0 0 12px transparent;
-  color: #212121;
-  border-radius: 12px;
-}
-
-.animated-button:hover .arr-1 {
-  right: -25%;
-}
-
-.animated-button:hover .arr-2 {
-  left: 16px;
-}
-
-.animated-button:hover .text {
-  transform: translateX(12px);
-}
-
-.animated-button:hover svg {
-  fill: #212121;
-}
-
-.animated-button:active {
-  scale: 0.95;
-  box-shadow: 0 0 0 4px greenyellow;
-}
-
-.animated-button:hover .circle {
-  width: 500px;
-  height: 500px;
-  opacity: 1;
-}
-/* From Uiverse.io by alexmaracinaru */ 
-.cta {
-  position: relative;
-  margin: auto;
-  padding: 12px 18px;
-  transition: all 0.2s ease;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.cta:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  border-radius: 50px;
-  background: #b1dae7;
-  width: 45px;
-  height: 45px;
-  transition: all 0.3s ease;
-}
-
-.cta span {
-  position: relative;
-  font-family: "Ubuntu", sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: #234567;
-}
-
-.cta svg {
-  position: relative;
-  top: 0;
-  margin-left: 10px;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: #234567;
-  stroke-width: 2;
-  transform: translateX(-5px);
-  transition: all 0.3s ease;
-}
-
-.cta:hover:before {
-  width: 100%;
-  background: #b1dae7;
-}
-
-.cta:hover svg {
-  transform: translateX(0);
-}
-
-.cta:active {
-  transform: scale(0.95);
-}
-/* Previous Button CSS - Right-to-Left Animation */
-.cta-prev-rtl {
-  position: relative;
-  margin: auto;
-  padding: 12px 18px;
-  transition: all 0.2s ease;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.cta-prev-rtl:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;        /* Anchored to right side */
-  left: auto;
-  display: block;
-  border-radius: 50px;
-  background: #b1dae7;
-  width: 45px;
-  height: 45px;
-  transition: all 0.3s ease;
-}
-
-.cta-prev-rtl span {
-  position: relative;
-  font-family: "Ubuntu", sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: #234567;
-}
-
-.cta-prev-rtl svg {
-  position: relative;
-  top: 0;
-  margin-right: 10px;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: #234567;
-  stroke-width: 2;
-  transform: translateX(5px); /* Starts shifted right */
-  transition: all 0.3s ease;
-}
-
-.cta-prev-rtl:hover:before {
-  width: 100%;     /* Expands leftward from right edge */
-  background: #b1dae7;
-}
-
-.cta-prev-rtl:hover svg {
-  transform: translateX(0); /* Slides left on hover */
-}
-
-.cta-prev-rtl:active {
-  transform: scale(0.95);
-}
-/* From Uiverse.io by zaby_4213 */ 
-.galaxy-btn {
-  /* Scoped Variables */
-  --btn-bg: #0c0c14;
-  --btn-text: #ffffff;
-  --btn-primary: #8553f4; /* Purple */
-  --btn-secondary: #3b82f6; /* Blue */
-  --btn-accent: #f43f5e; /* Pink */
-  --btn-font-size: 16px; /* Base size */
-
-  /* Layout & Sizing */
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-  font-size: var(--btn-font-size);
-  padding: 0.9em 2em;
-  border-radius: 0.75em;
-  border: none;
-  background: var(--btn-bg);
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
-  z-index: 1;
-  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-  /* Shadow */
-  box-shadow: 0 0.5em 1.5em -0.5em rgba(133, 83, 244, 0.4);
-}
-
-/* Accessible Focus State */
-.galaxy-btn:focus-visible {
-  outline: 2px solid var(--btn-primary);
-  outline-offset: 4px;
-}
-
-/* Active Click State */
-.galaxy-btn:active {
-  transform: scale(0.96);
-}
-
-/* --- Interior Content --- */
-.galaxy-btn__content {
-  display: flex;
-  align-items: center;
-  gap: 0.75em;
-  position: relative;
-  z-index: 2;
-  color: var(--btn-text);
-  font-weight: 600;
-  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-/* SVG Icon Styling */
-.galaxy-btn__icon {
-  width: 1.25em;
-  height: 1.25em;
-  transition: transform 0.3s ease;
-  fill: var(--btn-text);
-}
-
-/* Hover: Move Icon */
-.galaxy-btn:hover .galaxy-btn__icon {
-  transform: translateX(0.25em) rotate(-10deg);
-}
-
-/* --- The Rotating Gradient Border (The Nebula) --- */
-.galaxy-btn::before {
-  content: "";
-  position: absolute;
-  inset: -4px; /* Border width */
-  z-index: 0;
-  background: conic-gradient(
-    from 0deg,
-    var(--btn-bg) 0deg,
-    var(--btn-primary) 60deg,
-    var(--btn-secondary) 120deg,
-    var(--btn-bg) 180deg,
-    var(--btn-accent) 240deg,
-    var(--btn-primary) 300deg,
-    var(--btn-bg) 360deg
+.btn-31:before {
+  --progress: 100%;
+  background: wheat;
+  -webkit-clip-path: polygon(
+    100% 0,
+    var(--progress) var(--progress),
+    0 100%,
+    100% 100%
   );
-  border-radius: 0.75em;
-  animation: rotate-nebula 4s linear infinite;
-  filter: blur(8px); /* Soften for glow effect */
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
+  clip-path: polygon(
+    100% 0,
+    var(--progress) var(--progress),
+    0 100%,
+    100% 100%
+  );
+  content: "";
+  inset: 0;
+  position: absolute;
+  transition: -webkit-clip-path 0.2s ease;
+  transition: clip-path 0.2s ease;
+  transition: clip-path 0.2s ease, -webkit-clip-path 0.2s ease;
 }
 
-.galaxy-btn:hover::before {
-  opacity: 1;
-  animation-duration: 2s; /* Speed up on hover */
+.btn-31:hover:before {
+  --progress: 0%;
 }
 
-/* Mask to create the inner dark area (Simulates border) */
-.galaxy-btn::after {
+.btn-31 .text-container {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.btn-31 .text {
+  display: block;
+  font-weight: 900;
+  mix-blend-mode: difference;
+  position: relative;
+}
+
+.btn-31:hover .text {
+  -webkit-animation: move-up-alternate 0.3s ease forwards;
+  animation: move-up-alternate 0.3s ease forwards;
+}
+
+@-webkit-keyframes move-up-alternate {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(80%);
+  }
+
+  51% {
+    transform: translateY(-80%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes move-up-alternate {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(80%);
+  }
+
+  51% {
+    transform: translateY(-80%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+/* From Uiverse.io by escannord */ 
+.button {
+  --color: ;
+  padding: 1rem 2rem;
+  background-color: black;
+  color: white;
+  font-weight: bolder;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  border-radius: 5px;
+}
+
+.arrow {
+  display: inline-flex;
+  position: relative;
+  width: 30px;
+  height: 15px;
+  margin-left: 0.5rem;
+}
+
+.arrow::after,
+.arrow::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  border-color: wheat;
+}
+
+.arrow::after {
+  width: 10px;
+  height: 0;
+  border: 2px solid white;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.arrow::before {
+  width: 10px;
+  height: 10px;
+  border-top: 4px solid var(--color) ;
+  border-right: 4px solid var(--color);
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.button:hover {
+  background-color: wheat;
+  color: black;
+}
+
+.button:hover .arrow {
+  transform: translateX(10px);
+}
+
+.button:hover .text {
+  transform: translateX(10px);
+}
+
+.button:hover .arrow::after {
+  width: 25px;
+  border-color: black;
+}
+
+.button:hover .arrow::before {
+  left: 15px;
+  border-color: white;
+}
+
+.button,
+.text,
+.arrow,
+.arrow::after,
+.arrow::before,
+.button::before,
+.button::after {
+  transition: all 0.3s, box-shadow 0.2s;
+}
+
+.button::before {
   content: "";
   position: absolute;
-  inset: 2px; /* Inner spacing */
-  background: var(--btn-bg);
-  border-radius: 0.6em; /* Slightly smaller radius */
-  z-index: 1;
-}
-
-/* --- Internal Star Animation --- */
-.galaxy-btn__stars {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background-image: radial-gradient(
-      circle at 20% 30%,
-      white 1px,
-      transparent 1.5px
-    ),
-    radial-gradient(circle at 80% 70%, white 1px, transparent 1.5px),
-    radial-gradient(circle at 40% 80%, white 0.5px, transparent 1px);
-  background-size: 120% 120%;
-  opacity: 0.3;
-  transition:
-    opacity 0.3s ease,
-    background-position 0.3s ease;
-}
-
-.galaxy-btn:hover .galaxy-btn__stars {
-  opacity: 0.8;
-  animation: star-drift 5s linear infinite alternate;
-}
-
-/* --- Keyframes --- */
-@keyframes rotate-nebula {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes star-drift {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.1) translate(-2%, -2%);
-  }
-}
-.head{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-between;
-  box-sizing: border-box;
-  margin: 80px 20px 0 20px;
-
-}
-.monthChange{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.actionButton {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.mainSection {
-  width: 80%;
-  box-sizing: border-box;
-}
-.months {
-  font-size: 3rem;
-  
-}
-.weeks{
-  font-size: 2.5rem;
-  
-}
-.dash{
-  font-size: 4rem;
-
-}
-.dateCursor{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  gap: 12rem;
-  justify-content: center;
-}
-.date-1{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 35px;
-  gap: 10px;
-  color: gray;
-}
-.date-2{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 35px;
-  gap: 10px;
-  color: gray;
-}
-.date-3{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 35px;
-  gap: 10px;
-  color: gray;
-}
-.date-4{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 35px;
-  gap: 10px;
-  color: gray;
-}
-.date-5{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 35px;
-  gap: 10px;
-  color: gray;
-}
-.taskVeiw{
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
-.timeStamp{
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-.taskStamp{
-  display: flex;
-  flex-direction: row;
-  gap: 100px;
-}
-.monTask{
-  display: flex;
-  flex-direction: column;
-  gap: 100px
-  ;
-}
-
-
-
-
-
-
-
-/* ---------- Tablet / small laptop ---------- */
-@media (max-width: 1024px) {
-  .head {
-    margin: 60px 20px 0 20px;
-  }
- 
-  .months {
-    font-size: 2.25rem;
-  }
- 
-  .weeks {
-    font-size: 1.75rem;
-  }
- 
-  .dash {
-    font-size: 3rem;
-  }
- 
-  .dateCursor {
-    gap: 4rem;
-  }
- 
-  .taskStamp {
-    gap: 48px;
-  }
- 
-  .monTask {
-    gap: 60px;
-  }
- 
-  .btn-23 {
-    padding: 0.75rem 2rem;
-  }
-}
- 
-/* ---------- Mobile / tablet portrait ---------- */
-@media (max-width: 768px) {
-  .main {
-    flex-direction: column;
-  }
- 
-  .sidePanel {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
-    padding: 0 16px;
-  }
- 
-  .mainSection {
-    width: 100%;
-  }
- 
-  .buttons {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
- 
-  .btn-23 {
-    flex: 1 1 45%;
-    padding: 0.7rem 1rem;
-  }
- 
-  .animated-button {
-    width: auto;
-    flex: 1 1 45%;
-  }
- 
-  .head {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    margin: 32px 16px 0 16px;
-  }
- 
-  .actionButton {
-    width: 100%;
-  }
- 
-  .months {
-    font-size: 1.75rem;
-  }
- 
-  .weeks {
-    font-size: 1.4rem;
-  }
- 
-  .dash {
-    font-size: 2.25rem;
-  }
- 
-  .dateCursor {
-    gap: 2rem;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding: 0 16px 8px;
-  }
- 
-  .date-1,
-  .date-2,
-  .date-3,
-  .date-4,
-  .date-5 {
-    font-size: 22px;
-    flex-shrink: 0;
-  }
- 
-  .taskVeiw {
-    padding: 0 16px;
-  }
- 
-  .timeStamp {
-    gap: 32px;
-  }
- 
-  .taskStamp {
-    gap: 24px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    flex: 1;
-    min-width: 0;
-  }
- 
-  .monTask {
-    gap: 40px;
-    min-width: 130px;
-  }
-}
- 
-/* ---------- Small mobile phones ---------- */
-@media (max-width: 480px) {
-  .btn-23 {
-    flex: 1 1 100%;
-    font-size: 9px;
-    padding: 0.65rem 1rem;
-  }
- 
-  .animated-button {
-    flex: 1 1 100%;
-    padding: 8px 20px;
-  }
- 
-  .months {
-    font-size: 1.4rem;
-  }
- 
-  .weeks {
-    font-size: 1.1rem;
-  }
- 
-  .dash {
-    font-size: 1.75rem;
-  }
- 
-  .galaxy-btn {
-    --btn-font-size: 12px;
-    padding: 0.7em 1.4em;
-  }
- 
-  .actionButton {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-  }
- 
-  .date-1,
-  .date-2,
-  .date-3,
-  .date-4,
-  .date-5 {
-    font-size: 18px;
-    gap: 6px;
-  }
- 
-  .timeStamp {
-    gap: 24px;
-    font-size: 13px;
-  }
- 
-  .monTask {
-    min-width: 110px;
-    gap: 28px;
-  }
-}
-body {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  margin: 0;
-}
-.menu {
+  height: 100%;
+  width: 10px;
+  border-radius: 5px;
+  border: solid 3px var(--color);
+  border-right-color: transparent;
   background-color: transparent;
-  border: none;
-  cursor: pointer;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 10px;
+  border-radius: 5px;
+  border: solid 3px var(--color);
+  border-left-color: transparent;
+  background-color: transparent;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.button:hover:before,
+.button:hover:after {
+  width: 50% !important;
+}
+
+.button:active {
+  box-shadow: 0px 0px 0px 7px rgba(79, 78, 105, 0.295);
+}
+
+
+
+
+
+/* media query */
+
+@media screen and (max-width: 1619px) {
+  .mainsection {
+    width: 100%;
+  }
+
+  .btn {
+    display: flex;
+    position: relative;
+    z-index: 1001; 
+    cursor: pointer;
+  }
+
+  
+  .sidepanel {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    z-index: 1000;
+    padding: 5rem 1rem 2rem 1rem; /* Top padding leaves room for the button */
+    background-color: #EAE7DF;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 30px;
+  }
+
+  
+  .webName {
+    display: flex;
+  }
+
+  /* Display sidepanel when JS adds class="show" */
+  .sidepanel.show {
+    display: flex !important;
+  }
+
+  /* Dark backdrop behind flyout panel */
+  .overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+  }
+
+  .overlay.show {
+    display: block;
+  }
+}
+
+
+.addtask-minimal {
   display: flex;
-  padding: 0;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #000;
+  padding-bottom: 10px;
+  width: 100%;
 }
-.line {
-  fill: none;
-  stroke: black;
-  stroke-width: 6;
-  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+
+.quick-add {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  font-weight: bold;
+  outline: none;
+  width: 50%;
 }
-.line1 {
-  stroke-dasharray: 60 207;
-  stroke-width: 6;
+
+.options-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
-.line2 {
-  stroke-dasharray: 60 60;
-  stroke-width: 6;
-}
-.line3 {
-  stroke-dasharray: 60 207;
-  stroke-width: 6;
-}
-.opened .line1 {
-  stroke-dasharray: 90 207;
-  stroke-dashoffset: -134;
-  stroke-width: 6;
-}
-.opened .line2 {
-  stroke-dasharray: 1 60;
-  stroke-dashoffset: -30;
-  stroke-width: 6;
-}
-.opened .line3 {
-  stroke-dasharray: 90 207;
-  stroke-dashoffset: -134;
-  stroke-width: 6;
+
+.options-wrapper input, .options-wrapper select {
+  border: 1px solid #000;
+  background: transparent;
+  padding: 6px 10px;
+  border-radius: 4px;
 }

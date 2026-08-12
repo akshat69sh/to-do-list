@@ -1,0 +1,11 @@
+| Element               | Color          | Hex       |
+| --------------------- | -------------- | --------- |
+| Page background       | Warm white     | `#F8F9FB` |
+| Sidebar               | Light gray     | `#EEF1F4` |
+| Main text             | Almost black   | `#17191C` |
+| Task cards            | Soft blue-gray | `#DCE7F3` |
+| Task card border      | Blue-gray      | `#9FB3C8` |
+| Buttons               | Light blue     | `#D4E3F2` |
+| Button hover          | Medium blue    | `#B8D0E8` |
+| Accent/current day    | Blue           | `#4A78A8` |
+| Selected sidebar item | `#D7E5F3`      |           |
