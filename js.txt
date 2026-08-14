@@ -1,0 +1,91 @@
+
+// variable declare
+let isSidebarOpen = false;
+const todo = document.getElementById("input")
+const taskList = document.getElementById("tskLst")
+const time = document.getElementById("time")
+let todoText = ""
+let categry = ""
+let inputTime = ""
+
+
+
+
+time.addEventListener("change" , (event) => {
+  console.log (event.target.value) 
+  inputTime = event.target.value
+})
+
+
+
+
+
+const category = document.getElementById("Category")
+
+category.addEventListener("change", (event) => {
+  console.log(event.target.value);
+  categry = event.target.value
+  
+  
+})
+
+todo.addEventListener("change",(event) => {
+  console.log(event.target.value);
+  todoText = event.target.value
+  
+  
+})
+const addTodo = () => {
+  taskList.innerHTML = `<li class="lst" id="lst">
+        <div>
+          <span style="font-size: 20px;" id="task"><b>Task</b></span>
+          <span style="font-size: 20px;">:</span>
+          <span style="font-size: 20px;"><b>${todoText}</b></span>
+        </div>
+        <div>
+          <span>Date</span>
+          <span>:</span>
+          <span>07/03/2022</span>
+        </div>
+        <div>
+          <span>Time</span>
+          <span>:</span>
+          <span>${10:00 AM}</span>
+        </div>
+        <div>
+          <span>Category</span>
+          <span>:</span>
+          <span>${categry}</span>
+        </div>
+      </li>`
+
+  
+}
+
+// getting elements from html
+const sidePanel = document.getElementById("sidepanel");
+const hamburger = document.getElementById("hamburger");
+const overlay = document.getElementById("overlay");
+
+
+
+// all functions
+const toggleSideBar = () => {
+  isSidebarOpen = !isSidebarOpen;
+
+  if (isSidebarOpen) {
+    sidePanel.classList.add("show");
+    overlay.classList.add("show");
+    hamburger.classList.add("active");
+  } else {
+    sidePanel.classList.remove("show");
+    overlay.classList.remove("show");
+    hamburger.classList.remove("active");
+  }
+};
+
+
+
+// event listners
+hamburger.addEventListener("click", toggleSideBar);
+

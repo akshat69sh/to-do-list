@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lists</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <main class="main">
       <div class="sidepanel" id="sidepanel">
         <div class="webName">
@@ -15,13 +15,13 @@
         </div>
         <div class="navBar1">
           <div class="scene">
-            <div class="cube">
+            <a href="./index.html" class="cube">
               <span class="side top">Dashboard</span>
               <span class="side front">Dashboard</span>
-            </div>
+            </a>
           </div>
           <div class="scene">
-             <a href="./lists.html" class="cube">
+            <a href="./lists.html" class="cube">
               <span class="side top">Lists</span>
               <span class="side front">Lists</span>
             </a>
@@ -79,95 +79,35 @@
           <span class="text">Todos</span>
         </button>
         <div class="overlay" id="overlay"></div>
-       <div class="addtask-minimal">
-  <input id="input" type="text" class="quick-add" placeholder="+ Add a task..." />
-  <div class="options-wrapper">
-    <input type="time" />
-    <select>
-      <option value="work">Work</option>
-      <option value="study">Study</option>
-      <option value="health">Health</option>
-    </select>
-    <button class="plusButton"><svg class="plusIcon" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></button>
-  </div>
-</div>
-    <div>
-        <h1>My Lists</h1>
-    </div>
-    <ul class="tskLst">
-      <li class="lst">
-        <div>
-          <span style="font-size: 20px;"><b>Task</b></span>
-          <span style="font-size: 20px;">:</span>
-          <span style="font-size: 20px;"><b>Monday Sync</b></span>
+        <div class="addtask-minimal">
+          <input
+            id="input"
+            type="text"
+            class="quick-add"
+            placeholder="+ Add a task..."
+          />
+          <div class="options-wrapper">
+            <input type="time" id="time" />
+            <input type="date" id="date" />
+
+            <select id="Category">
+              <option value="work">Work</option>
+              <option value="study">Study</option>
+              <option value="health">Health</option>
+            </select>
+            <button class="plusButton" onclick="addTodo()">
+              <svg class="plusIcon" viewBox="0 0 24 24">
+                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+              </svg>
+            </button>
+          </div>
         </div>
-        <div>
-          <span>Date</span>
-          <span>:</span>
-          <span>07/03/2022</span>
-        </div>
-        <div>
-          <span>Time</span>
-          <span>:</span>
-          <span>10:00 AM</span>
-        </div>
-        <div>
-          <span>Category</span>
-          <span>:</span>
-          <span>Work</span>
-        </div>
-      </li>
-      <li class="lst">
-        <div>
-          <span style="font-size: 20px;"><b>Task</b></span>
-          <span style="font-size: 20px;">:</span>
-          <span style="font-size: 20px;"><b>Lunch break</b></span>
-        </div>
-        <div>
-          <span>Date</span>
-          <span>:</span>
-          <span>07/03/2022</span>
-        </div>
-        <div>
-          <span>Time</span>
-          <span>:</span>
-          <span>12:00 PM</span>
-        </div>
-        <div>
-          <span>Category</span>
-          <span>:</span>
-          <span>null</span>
-        </div>
-      </li>
-      <li class="lst">
-        <div>
-          <span style="font-size: 20px;"><b>Task</b></span>
-          <span style="font-size: 20px;">:</span>
-          <span style="font-size: 20px;"><b>Emails</b></span>
-        </div>
-        <div>
-          <span>Date</span>
-          <span>:</span>
-          <span>07/03/2022</span>
-        </div>
-        <div>
-          <span>Time</span>
-          <span>:</span>
-          <span>1:00 PM</span>
-        </div>
-        <div>
-          <span>Category</span>
-          <span>:</span>
-          <span>Work</span>
-        </div>
-      </li>
-    </ul>   
       </div>
+      <div>
+        <h1>My Lists</h1>
+      </div>
+      <ul class="tskLst" id="taskListVeiw"></ul>
     </main>
     <script src="./script.js"></script>
   </body>
-</html>
-
-    
-</body>
 </html>
