@@ -5,6 +5,8 @@ let date = "";
 let time = "";
 let category = "";
 
+let taskListArray = [];
+
 // getting html elements
 
 const sidePanel = document.getElementById("sidepanel");
@@ -32,29 +34,63 @@ const toggleSideBar = () => {
   }
 };
 
-addTodo = (addtask) => {
-  taskList.innerHTML = `<li class="lst" id="lst">
-  <div>
-  <span style="font-size: 20px;" id="task"><b>Task</b></span>
-  <span style="font-size: 20px;">:</span>
-  <span style="font-size: 20px;"><b>${task}</b></span>
-  </div>
-  <div>
-  <span>Date</span>
-  <span>:</span>
-  <span>${date}</span>
-  </div>
-  <div>
-  <span>Time</span>
-          <span>:</span>
-          <span>${time}</span>
-        </div>
-        <div>
-          <span>Category</span>
-          <span>:</span>
-          <span>${category}</span>
-        </div>
-      </li>`;
+addTodo = () => {
+  taskListArray.push({
+    task: task,
+    date: date,
+    time: time,
+    category: category,
+  });
+
+  console.log(taskListArray);
+
+  taskList.innerHTML = taskListArray.map((todo) => {
+    return `<li class="lst" id="lst">
+   <div>
+   <span style="font-size: 20px;" id="task"><b>Task</b></span>
+   <span style="font-size: 20px;">:</span>
+   <span style="font-size: 20px;"><b>${todo.task}</b></span>
+   </div>
+   <div>
+   <span>Date</span>
+   <span>:</span>
+   <span>${todo.date}</span>
+   </div>
+   <div>
+   <span>Time</span>
+           <span>:</span>
+           <span>${todo.time}</span>
+         </div>
+         <div>
+           <span>Category</span>
+           <span>:</span>
+           <span>${category}</span>
+         </div>
+       </li>`;
+  });
+
+  // taskList.innerHTML = `<li class="lst" id="lst">
+  // <div>
+  // <span style="font-size: 20px;" id="task"><b>Task</b></span>
+  // <span style="font-size: 20px;">:</span>
+  // <span style="font-size: 20px;"><b>${task}</b></span>
+  // </div>
+  // <div>
+  // <span>Date</span>
+  // <span>:</span>
+  // <span>${date}</span>
+  // </div>
+  // <div>
+  // <span>Time</span>
+  //         <span>:</span>
+  //         <span>${time}</span>
+  //       </div>
+  //       <div>
+  //         <span>Category</span>
+  //         <span>:</span>
+  //         <span>${category}</span>
+  //       </div>
+  //     </li>`;
 };
 // eventlistners
 
@@ -73,3 +109,38 @@ dateInput.addEventListener("change", (event) => {
 categoryInput.addEventListener("change", (event) => {
   category = event.target.value;
 });
+
+// Code By Jayesh
+
+const arrayDummy = [
+  {
+    task: "Task 1",
+    date: "2024-06-01",
+    time: "10:00",
+    category: "Work",
+  },
+  {
+    task: "Task 1",
+    date: "2024-06-01",
+    time: "10:00",
+    category: "Work",
+  },
+  {
+    task: "Task 1",
+    date: "2024-06-01",
+    time: "10:00",
+    category: "Work",
+  },
+  {
+    task: "Task 1",
+    date: "2024-06-01",
+    time: "10:00",
+    category: "Work",
+  },
+  {
+    task: "Task 1",
+    date: "2024-06-01",
+    time: "10:00",
+    category: "Work",
+  },
+];
