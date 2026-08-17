@@ -35,7 +35,7 @@ const toggleSideBar = () => {
 };
 
 addTodo = () => {
-  taskListArray.push({
+  taskListArray.unshift({
     task: task,
     date: date,
     time: time,
@@ -64,7 +64,7 @@ addTodo = () => {
          <div>
            <span>Category</span>
            <span>:</span>
-           <span>${category}</span>
+           <span>${todo.category}</span>
          </div>
        </li>`;
   });
@@ -113,6 +113,18 @@ categoryInput.addEventListener("change", (event) => {
 // Code By Jayesh
 
 const arrayDummy = [
+  {
+    task: "Task 1",
+    date: "2024-06-01",
+    time: "10:00",
+    category: "Work",
+  },
+  {
+    task: "Task 1",
+    date: "2024-06-01",
+    time: "10:00",
+    category: "Work",
+  },
   {
     task: "Task 1",
     date: "2024-06-01",
